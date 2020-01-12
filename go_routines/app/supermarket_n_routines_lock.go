@@ -12,7 +12,7 @@ import (
 	"github.com/efrag/blog-posts/go_routines/domain"
 )
 
-func processQueueGoRLock(ctx context.Context, c *domain.Counter, q *domain.Queue, wg *sync.WaitGroup) {
+func processQueueGoRLock(ctx context.Context, q *domain.Queue, c *domain.Counter, wg *sync.WaitGroup) {
 	defer wg.Done()
 
 	q.Lock.Lock()
@@ -41,7 +41,7 @@ func RunSuperMarketGoRLock(ctx context.Context, q *domain.Queue, cs []*domain.Co
 
 	for _, c := range cs {
 		wg.Add(1)
-		go processQueueGoRLock(ctx, c, q, wg)
+		go processQueueGoRLock(ctx, q, c, wg)
 	}
 	wg.Wait()
 }

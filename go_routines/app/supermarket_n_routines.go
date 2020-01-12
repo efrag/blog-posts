@@ -10,7 +10,7 @@ import (
 	"github.com/efrag/blog-posts/go_routines/domain"
 )
 
-func processQueueRoutines(ctx context.Context, c *domain.Counter, q *domain.Queue, wg *sync.WaitGroup) {
+func processQueueRoutines(ctx context.Context, q *domain.Queue, c *domain.Counter, wg *sync.WaitGroup) {
 	defer wg.Done()
 
 	for q.NumberOfPeople() > 0 {
@@ -31,7 +31,7 @@ func RunSupermarketNGoRoutines(ctx context.Context, q *domain.Queue, cs []*domai
 
 	for _, c := range cs {
 		wg.Add(1)
-		go processQueueRoutines(ctx, c, q, wg)
+		go processQueueRoutines(ctx, q, c, wg)
 	}
 	wg.Wait()
 }
