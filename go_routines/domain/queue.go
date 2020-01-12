@@ -23,7 +23,8 @@ func (q *Queue) Push(person *Person) {
 	q.people = append(q.people, person)
 }
 
-// NumberOfItems returns the number of people in our queue
+// NumberOfPeople
+//returns the number of people in our queue
 func (q *Queue) NumberOfPeople() int {
 	return len(q.people)
 }
