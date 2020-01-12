@@ -9,7 +9,7 @@ import (
 	"github.com/efrag/blog-posts/go_routines/domain"
 )
 
-func processQueueWait(ctx context.Context, cs []*domain.Counter, q *domain.Queue, wg *sync.WaitGroup) {
+func processQueueWait(ctx context.Context, q *domain.Queue, cs []*domain.Counter, wg *sync.WaitGroup) {
 	defer wg.Done()
 	c := cs[0]
 
@@ -26,6 +26,6 @@ func RunSupermarketGoRoutineWait(ctx context.Context, q *domain.Queue, cs []*dom
 	wg := &sync.WaitGroup{}
 
 	wg.Add(1)
-	go processQueueWait(ctx, cs, q, wg)
+	go processQueueWait(ctx, q, cs, wg)
 	wg.Wait()
 }
