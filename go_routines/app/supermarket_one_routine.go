@@ -8,7 +8,7 @@ import (
 	"github.com/efrag/blog-posts/go_routines/domain"
 )
 
-func processQueue(ctx context.Context, cs []*domain.Counter, q *domain.Queue) {
+func processQueue(ctx context.Context, q *domain.Queue, cs []*domain.Counter) {
 	c := cs[0]
 
 	for q.NumberOfPeople() > 0 {
@@ -21,9 +21,8 @@ func processQueue(ctx context.Context, cs []*domain.Counter, q *domain.Queue) {
 }
 
 func RunSupermarketGoRoutine(ctx context.Context, q *domain.Queue, cs []*domain.Counter) {
-	// this will return immediately and the outcome of
-	// the code is not going to be visible at all since
-	// the main function will exit without waiting for
-	// the go routine to return
-	go processQueue(ctx, cs, q)
+	// this will return immediately and the outcome of the code is
+	// not going to be visible at all since the main function will
+	// exit without waiting for the go routine to return
+	go processQueue(ctx, q, cs)
 }
