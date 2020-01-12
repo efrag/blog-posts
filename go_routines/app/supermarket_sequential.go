@@ -14,10 +14,6 @@ func RunSupermarketSequential(ctx context.Context, q *domain.Queue, cs []*domain
 	for q.NumberOfPeople() > 0 {
 		p := q.Pop()
 
-		if p == nil {
-			return
-		}
-
 		ctx, task := trace.NewTask(ctx, "process")
 		trace.Log(ctx, "items", strconv.Itoa(p.Items))
 		c.Process(p)
