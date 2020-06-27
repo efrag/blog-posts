@@ -117,7 +117,6 @@ func (s *Structor) parse() ([]parsedFile, error) {
 		if err != nil {
 			return nil, err
 		}
-		ast.Print(fset, f)
 
 		// Inspect the AST and print all identifiers and literals.
 		pFile := newParsedFile(f.Name.Name)
