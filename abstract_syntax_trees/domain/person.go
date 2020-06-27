@@ -3,7 +3,7 @@ package domain
 import (
 	"time"
 
-	"github.com/efrag/blog-posts/go_generate/utils"
+	"github.com/efrag/blog-posts/abstract_syntax_trees/utils"
 )
 
 type Person struct {

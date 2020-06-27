@@ -2,7 +2,7 @@
 package domain
 
 import "time"
-import "github.com/efrag/blog-posts/go_generate/utils"
+import "github.com/efrag/blog-posts/abstract_syntax_trees/utils"
 
 func (t *Person) GetName() string {
 	return t.name

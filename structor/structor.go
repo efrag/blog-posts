@@ -119,8 +119,6 @@ func (s *Structor) parse() ([]parsedFile, error) {
 		}
 		ast.Print(fset, f)
 
-		// first let's extract the package name
-
 		// Inspect the AST and print all identifiers and literals.
 		pFile := newParsedFile(f.Name.Name)
 		ast.Inspect(f, func(n ast.Node) bool {
