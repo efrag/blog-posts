@@ -13,3 +13,5 @@
 
 # Ignore IDE files
 *.idea
+
+*__debug_bin
