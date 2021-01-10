@@ -15,3 +15,5 @@
 *.idea
 
 *__debug_bin
+
+/*/vendor/
